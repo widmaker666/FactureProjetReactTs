@@ -1,0 +1,22 @@
+#root {
+  height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.navbar {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+a, a:visited {
+  color: grey;
+  font-size: 1.4rem;
+}

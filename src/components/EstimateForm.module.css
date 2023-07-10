@@ -1,0 +1,48 @@
+.form {
+  display: grid;
+  grid-template-rows: auto;
+  --font-size: 1.2rem;
+  --font-size-smaller: 1rem
+}
+
+.formlabel {
+  font-size: var(--font-size);
+}
+
+.forminput {
+  width: 100%;
+  height: 1.9rem;
+  font-size: var(--font-size);
+  background-color: rgb(225, 249, 226);
+  max-width: 25rem;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.formerror {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.formbutton {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: var(--font-size);
+  cursor: pointer;
+}
+
+.delete {
+    color: white;
+    background: red;
+    padding: 0.5rem;
+    font-size: var(--font-size-smaller);
+}
+.task {
+  margin: 3rem 0rem;
+  padding: 20px;
+
+  border: 1.5px solid yellow;
+}
