@@ -1,9 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import Estimate from "./pages/Estimate";
+import Estimate from "./pages/EstimatePage";
 import Receipt from "./pages/Receipt";
 import Pricing from "./pages/Pricing";
+import { EstimateService } from './services/estimateService';
+import { createContext } from "react";
+import MyEstimate from "./pages/MyEstimate";
 
 export type Task = {
   reference: string
@@ -22,6 +25,10 @@ export type Estimate = {
   title: string
   tasks: Task[]
 }
+
+const estimateService = new EstimateService([])
+export const EstimateCtx = createContext(estimateService)
+
 const App = () => {
   return (
     <>
@@ -30,6 +37,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/new-receipt" element={<Receipt />} />
         <Route path="/new-estimate" element={<Estimate />} />
+        <Route path="/my-estimates" element={<MyEstimate />} />
         <Route path="/pricing" element={<Pricing />} />
       </Routes>
     </>

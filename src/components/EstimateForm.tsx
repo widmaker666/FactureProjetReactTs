@@ -1,8 +1,12 @@
-import { useForm, SubmitHandler, useFieldArray } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { Estimate } from "../App";
 import styles from "./EstimateForm.module.css";
 
-export default function EstimateForm() {
+type estimateFormProps = {
+  onEstimateCreate: (data: Estimate) => void;
+};
+
+export default function EstimateForm({ onEstimateCreate }: estimateFormProps) {
   //! Form Submit //
   const {
     register,
@@ -10,7 +14,9 @@ export default function EstimateForm() {
     formState: { errors },
     control,
   } = useForm<Estimate>();
-  const onSubmit: SubmitHandler<Estimate> = (data) => console.log(data);
+  function onSubmit(data: Estimate) {
+    onEstimateCreate(data)
+  }
 
   //! Hooks UseFieldArray //
   const { fields, append, remove } = useFieldArray({
@@ -166,12 +172,14 @@ export default function EstimateForm() {
               </div>
 
               <button
-              className={styles.delete}
+                className={styles.delete}
                 type="button"
                 onClick={() => {
                   remove(index);
                 }}
-              >Delete</button>
+              >
+                Delete
+              </button>
             </section>
           </div>
         );
