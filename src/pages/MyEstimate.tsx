@@ -1,19 +1,23 @@
+import { useContext } from "react";
 import { EstimateCtx } from "../App";
-import { useContext} from "react"
 import { EstimateService } from "../services/estimateService";
+import Card from "../components/Card";
+import PDFprinter from "../services/PDFprinter";
 
-const MyEstimate = () => {
+export default function MyEstimates() {
+  const estimateSrv = useContext<EstimateService>(EstimateCtx);
+  const estimates = estimateSrv.readEstimate();
 
-    const estimateSrv = useContext<EstimateService>(EstimateCtx)
-    const estimates = estimateSrv.readEstimate()
-
-    return (
-        <>
-            <h3>all my estimates</h3>
-            <div>lister les estimates</div>
-            {JSON.stringify(estimates, null, 2)}
-        </>
-    );
-};
-
-export default MyEstimate;
+  return (
+    <>
+      <h3>All my estimates</h3>
+      <PDFprinter>
+        <div>
+          {estimates.map((est) => (
+            <Card data={est} key={est.id} />
+          ))}
+        </div>
+      </PDFprinter>
+    </>
+  );
+}

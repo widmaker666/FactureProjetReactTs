@@ -1,0 +1,77 @@
+.card {
+  margin: 2rem;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.estimateheader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.container {
+  background: lightsalmon;
+  border: 3px solid black;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.details {
+  display: grid;
+  gap: 5px;  
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "ref desc qty uprice depo vat subto";
+}
+
+.details > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  
+}
+
+.ref {
+  grid-area: ref;
+}
+
+.desc {
+    grid-area: desc;
+}
+.qty {
+    grid-area: qty;
+}
+.uprice {
+    grid-area: uprice;
+}
+.depo {
+    grid-area: depo;
+}
+.vat {
+    grid-area: vat;
+}
+.subto {
+    grid-area: subto;
+}
+
+.total {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: end;    
+    border-top: 2px solid red;
+    border-left: none;    
+    border-right: none;    
+    border-bottom: none;    
+    padding: 1.1rem;
+
+}
+
+.totalwithtaxes{
+    font-size: 1.2rem;
+    font-weight: bold;
+
+}
+

@@ -15,7 +15,7 @@ export default function EstimateForm({ onEstimateCreate }: estimateFormProps) {
     control,
   } = useForm<Estimate>();
   function onSubmit(data: Estimate) {
-    onEstimateCreate(data)
+    onEstimateCreate(data);
   }
 
   //! Hooks UseFieldArray //
@@ -26,6 +26,16 @@ export default function EstimateForm({ onEstimateCreate }: estimateFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <label htmlFor="estimateTitle" className={styles.formlabel}>Estimate title</label>
+      <input
+        {...register("title", { required: true })}
+        id="estimateTitle"
+        className={styles.forminput}
+        placeholder="Estimate title"
+      />
+      <span className={styles.formerror}>
+        {errors.title && "please, enter an estimate title"}
+      </span>
       <label htmlFor="estimateNumber" className={styles.formlabel}>
         Estimate Number
       </label>

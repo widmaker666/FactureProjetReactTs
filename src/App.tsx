@@ -26,7 +26,60 @@ export type Estimate = {
   tasks: Task[]
 }
 
-const estimateService = new EstimateService([])
+const mockData: Estimate[] = [
+  {
+    id: '1',
+    estimateNumber: '123',
+    estimateDate: new Date('12/08/11'),
+    payementDate: new Date('12/31/2022'),
+    title: 'Super Estimate from Hell',
+    tasks: [
+      {
+        reference: 'frfs',
+        description: 'French Fries',
+        quantity: 2,
+        unitPrice: 4.99,
+        deposit: 0,
+        vat: 20
+      },
+      {
+        reference: 'pzz',
+        description: 'Pizza Regina',
+        quantity: 4,
+        unitPrice: 12,
+        deposit: 5,
+        vat: 20
+      },
+    ]
+  },
+  {
+    id: '2',
+    estimateNumber: '456',
+    estimateDate: new Date('12/12/11'),
+    payementDate: new Date('12/30/2022'),
+    title: 'Another Great Estimate',
+    tasks: [
+      {
+        reference: 'drn',
+        description: 'Flying Drone',
+        quantity: 1,
+        unitPrice: 419.99,
+        deposit: 100,
+        vat: 20
+      },
+      {
+        reference: 'smrtphn',
+        description: 'iPhone 13',
+        quantity: 1,
+        unitPrice: 989.60,
+        deposit: 200,
+        vat: 20
+      },
+    ]
+  }
+]
+
+const estimateService = new EstimateService(mockData)
 export const EstimateCtx = createContext(estimateService)
 
 const App = () => {
