@@ -8,10 +8,21 @@ export class EstimateService {
   }
 
   createEstimate(data: Estimate) {
+    if (data.id === undefined){
+      data.id = Date.now().toString()
+    }
     this.estimateCollection = [data, ...this.estimateCollection];
   }
 
   readEstimate(): Estimate[] {
     return this.estimateCollection;
+  }
+
+  getEstimateById(id: string): Estimate | undefined {
+    const result = this.estimateCollection.find((est) => est.id === id);
+    if (result === undefined) {
+      return undefined;
+    }
+    return result;
   }
 }

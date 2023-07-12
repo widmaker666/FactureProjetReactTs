@@ -1,0 +1,13 @@
+
+.summary {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;  
+}
+
+.summary > a {
+  padding: 0.5rem;
+  font-size: medium;
+  cursor: pointer;
+}

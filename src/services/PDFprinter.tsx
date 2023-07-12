@@ -26,10 +26,10 @@ export default function PDFprinter({ children }: pdfPrinterProps) {
 
   return (
     <div>
+      <div ref={printRef}>{children}</div>
       <button type="button" onClick={handleDownloadPdf}>
         Download as PDF
       </button>
-      <div ref={printRef}>{children}</div>
     </div>
   );
 }
